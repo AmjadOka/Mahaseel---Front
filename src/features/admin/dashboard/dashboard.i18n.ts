@@ -1,0 +1,38 @@
+import { defineDict } from "@/lib/i18n/translate";
+
+export default defineDict({
+  ar: {
+    title: "نظرة عامة",
+    sub: "ما يحتاج انتباهك الآن، وأرقام المنصة.",
+    attention: "يحتاج إجراءً",
+    pendingFarms: "مزارع بانتظار الاعتماد",
+    pendingWithdrawals: "سحوبات بانتظار المعالجة",
+    disputes: "طلبات عالقة بلا دفع (أكثر من 24 ساعة)",
+    numbers: "الأرقام",
+    liveAuctions: "مزادات نشطة",
+    newUsers: "مستخدمون جدد اليوم",
+    ordersToday: "طلبات اليوم",
+    revenueToday: "إيراد اليوم",
+    revenueAll: "إجمالي الإيرادات",
+    fees: "إجمالي عمولة المنصة",
+    monthly: "الإيراد الشهري",
+    monthlyLabel: "الإيراد الشهري هذا العام",
+  },
+  en: {
+    title: "Overview",
+    sub: "What needs your attention now, and the platform's numbers.",
+    attention: "Needs action",
+    pendingFarms: "Farms awaiting approval",
+    pendingWithdrawals: "Withdrawals awaiting processing",
+    disputes: "Orders stuck unpaid (over 24 h)",
+    numbers: "Numbers",
+    liveAuctions: "Live auctions",
+    newUsers: "New users today",
+    ordersToday: "Orders today",
+    revenueToday: "Revenue today",
+    revenueAll: "All-time revenue",
+    fees: "All-time platform fees",
+    monthly: "Monthly revenue",
+    monthlyLabel: "Monthly revenue this year",
+  },
+});

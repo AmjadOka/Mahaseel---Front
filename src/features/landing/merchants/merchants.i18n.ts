@@ -1,0 +1,36 @@
+import { defineDict } from "@/lib/i18n/translate";
+
+export default defineDict({
+  ar: {
+    title: "لديك مزرعة؟ بيعها هنا",
+    body: "سجّل مزرعتك، وانشر منتجاتك، وتابع أرباحك من مكان واحد.",
+    p1: "تُراجَع مزرعتك",
+    p1d: "تعتمد الإدارة مزرعتك قبل أن تظهر منتجاتك في السوق.",
+    p2: "تنشر بالطريقة التي تناسبك",
+    p2d: "سعر ثابت أو مزاد، مع صور وفيديو لكل منتج.",
+    p3: "تسحب أرباحك",
+    p3d: "اربط حسابًا بنكيًا أو أكثر واطلب السحب متى كان الرصيد متاحًا.",
+    wallet: "محفظة التاجر",
+    sample: "أرقام توضيحية",
+    available: "متاح للسحب",
+    pending: "قيد الانتظار",
+    pendingNote: "يُحرَّر بعد {days} أيام من اكتمال الطلب.",
+    total: "إجمالي الأرباح",
+  },
+  en: {
+    title: "Own a farm? Sell it here",
+    body: "Register your farm, list your products, and track your earnings in one place.",
+    p1: "Your farm is reviewed",
+    p1d: "The platform approves your farm before your products appear in the market.",
+    p2: "List it your way",
+    p2d: "Fixed price or auction, with photos and video for each product.",
+    p3: "Withdraw your earnings",
+    p3d: "Link one or more bank accounts and request a withdrawal once the balance is available.",
+    wallet: "Merchant wallet",
+    sample: "Sample figures",
+    available: "Available to withdraw",
+    pending: "Pending",
+    pendingNote: "Released {days} days after an order completes.",
+    total: "Total earned",
+  },
+});

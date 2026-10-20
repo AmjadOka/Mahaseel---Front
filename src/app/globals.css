@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ── Tokens ─────────────────────────────────────────────
+   paper/surface = ground · ink/muted = text · line = rules
+   grove = olive leaf (primary) · pomegranate = bids & live · oil = pending money */
+:root {
+  --paper: #f1f4ec;
+  --surface: #fbfcf8;
+  --ink: #16241b;
+  --muted: #566a5c;
+  --line: #d3dccb;
+  --grove: #2e5e3a;
+  --grove-soft: #dce8d3;
+  --pomegranate: #b8324a;
+  --oil: #c08a2b;
+  --on-solid: #fbfcf8;
+}
+
+.dark {
+  --paper: #0e1712;
+  --surface: #15211a;
+  --ink: #e7eee2;
+  --muted: #9aab9e;
+  --line: #283a2e;
+  --grove: #8cc17a;
+  --grove-soft: #1c3022;
+  --pomegranate: #e76a80;
+  --oil: #e0b458;
+  --on-solid: #0e1712;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-grove: var(--grove);
+  --color-grove-soft: var(--grove-soft);
+  --color-pomegranate: var(--pomegranate);
+  --color-oil: var(--oil);
+  --color-on-solid: var(--on-solid);
+}
+
+@theme {
+  --font-display: "Reem Kufi", "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "IBM Plex Sans Arabic", ui-sans-serif, system-ui, sans-serif;
+
+  --animate-bump: bump 0.35s ease-out;
+  @keyframes bump {
+    from {
+      opacity: 0;
+      transform: translateY(0.35em);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  body {
+    @apply bg-paper font-body text-ink antialiased;
+    line-height: 1.75;
+  }
+  :focus-visible {
+    outline: 2px solid var(--grove);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  ::selection {
+    background: var(--grove);
+    color: var(--on-solid);
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex h-11 items-center justify-center gap-2 rounded-full px-6 text-sm font-medium transition-colors disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-solid {
+    @apply bg-grove text-on-solid hover:bg-grove/90;
+  }
+  .btn-line {
+    @apply border border-line bg-surface text-ink hover:border-grove;
+  }
+  .input {
+    @apply h-12 w-full rounded-xl border border-line bg-surface px-4 text-ink transition-colors placeholder:text-muted/70 hover:border-grove/60 focus:border-grove aria-[invalid=true]:border-pomegranate;
+  }
+  /* Furrow lines for the auth side panel; tinted from the panel's own text colour so it works in both themes. */
+  .furrows {
+    background-image: repeating-linear-gradient(105deg, transparent 0 34px, color-mix(in oklab, var(--on-solid) 9%, transparent) 34px 36px);
+  }
+}
+
+@utility wrap {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 72rem;
+  padding-inline: 1.25rem;
+}
+
+/* Numbers, prices, codes: always LTR + tabular, even inside RTL text. */
+.figure {
+  font-variant-numeric: tabular-nums;
+  direction: ltr;
+  unicode-bidi: isolate;
+  white-space: nowrap;
+}
+
+/* Theme swap: no element animates its colour mid-switch. */
+html.theme-switching,
+html.theme-switching *,
+html.theme-switching *::before,
+html.theme-switching *::after {
+  transition: none !important;
+}
+
+/* Native <dialog> modals (filters sheet): freeze the page behind them. */
+body:has(dialog[open]) {
+  overflow: hidden;
+}
